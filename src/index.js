@@ -9,7 +9,7 @@ import 'css/app.css'
 import Tabs from 'components/Tabs'
 
 const App = () => {
-  return <Tabs />
+  return <Tabs dataAddress="src/data/tabs.json" />
 }
 
 ReactDOM.render(<App />, document.querySelector('#app'))

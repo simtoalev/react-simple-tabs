@@ -1,0 +1,26 @@
+.tabs {
+  max-width: 800px;
+
+  .buttons {
+    display: flex;
+
+    button {
+      background: #a99985;
+      padding: 10px 15px;
+      color: #fff;
+
+      &.active {
+        background: #dad2bc;
+      }
+
+      & + button {
+        margin-left: 2px;
+      }
+    }
+  }
+
+  .content {
+    background: #dad2bc;
+    padding: 30px;
+  }
+}
