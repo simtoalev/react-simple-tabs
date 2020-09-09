@@ -2,36 +2,20 @@ import React, { useEffect, useState } from 'react'
 
 import styles from './index.module.css'
 
-const Tabs = ({ dataAddress }) => {
-  const [tabsState, setTabsState] = useState({
-    tabs: [],
-    loading: true,
-    errorMsg: ''
-  })
+const Tabs = ({ tabData }) => {
+  const [tabs, setTabs] = useState([])
 
   const [activeTabId, setActiveTabId] = useState(1)
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch(dataAddress)
-        const results = await response.json()
-        setTabsState({ tabs: results, loading: false, errorMsg: '' })
-      } catch (e) {
-        setTabsState({ tabs: [], loading: false, errorMsg: e.message })
-      }
-    }
-    fetchData()
-  }, [dataAddress])
+    setTabs(tabData)
+  }, [tabData])
 
   return (
     <div className={styles.tabs}>
-      {tabsState.loading && <p>Yükleniyor...</p>}
-      {tabsState.errorMsg && <p>Hata: {tabsState.errorMsg}</p>}
-
-      {tabsState.tabs && (
+      {tabs && (
         <div className={styles.buttons}>
-          {tabsState.tabs.map((tab) => {
+          {tabs.map((tab) => {
             return (
               <button
                 key={tab.id}
@@ -48,7 +32,7 @@ const Tabs = ({ dataAddress }) => {
       )}
 
       <div className={styles.content}>
-        {tabsState.tabs.map((tab) => {
+        {tabs.map((tab) => {
           return tab.id == activeTabId ? tab.content : ''
         })}
       </div>
