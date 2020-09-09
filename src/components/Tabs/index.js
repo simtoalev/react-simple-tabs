@@ -9,6 +9,8 @@ const Tabs = ({ dataAddress }) => {
     errorMsg: ''
   })
 
+  const [activeTabId, setActiveTabId] = useState(1)
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -31,7 +33,13 @@ const Tabs = ({ dataAddress }) => {
         <div className={styles.buttons}>
           {tabsState.tabs.map((tab) => {
             return (
-              <button key={tab.id} className={tab.id == 1 ? styles.active : ''}>
+              <button
+                key={tab.id}
+                className={tab.id == activeTabId ? styles.active : ''}
+                onClick={() => {
+                  setActiveTabId(tab.id)
+                }}
+              >
                 {tab.title}
               </button>
             )
