@@ -5,4 +5,6 @@ body {
   display: flex;
   justify-content: center;
   font-family: 'Rubik', sans-serif;
+  padding: 20px;
+  color: #222222;
 }

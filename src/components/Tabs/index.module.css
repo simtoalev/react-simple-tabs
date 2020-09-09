@@ -11,6 +11,7 @@
 
       &.active {
         background: #dad2bc;
+        color: #222;
       }
 
       & + button {
