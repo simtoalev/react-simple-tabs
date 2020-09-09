@@ -48,9 +48,9 @@ const Tabs = ({ dataAddress }) => {
       )}
 
       <div className={styles.content}>
-        DUMMY Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolorem,
-        eaque totam culpa molestias nostrum quo praesentium architecto libero
-        cumque aperiam sit nemo, doloribus corporis?
+        {tabsState.tabs.map((tab) => {
+          return tab.id == activeTabId ? tab.content : ''
+        })}
       </div>
     </div>
   )
